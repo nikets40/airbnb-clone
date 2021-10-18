@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
+import LargeCard from "../components/LargeCard";
 import MediumCard from "../components/MediumCard";
 import SmallCard from "../components/SmallCard";
 
@@ -13,8 +14,8 @@ export default function Home({ exploreData, cardsData }) {
       </Head>
       <Header />
       <Banner />
-      <main>
-        <section className="mt-6 max-w-7xl mx-auto px-8 sm:px-16">
+      <main className="mt-6 max-w-7xl mx-auto px-8 sm:px-16">
+        <section>
           <h2 className="text-4xl font-semibold pb-5">Explore Nearby</h2>
 
           {/* Pull some data from the server - API endpoints */}
@@ -31,14 +32,21 @@ export default function Home({ exploreData, cardsData }) {
           </div>
         </section>
 
-        <section className="mt-6 max-w-7xl mx-auto px-8 sm:px-16">
+        <section>
           <h2 className="text-4xl font-semibold py-8">Live anywhere</h2>
-          <div className="flex space-x-5 overflow-scroll scrollbar-hide p-3 -ml-3"> 
+          <div className="flex space-x-5 overflow-scroll scrollbar-hide p-3 -ml-3">
             {cardsData?.map((item) => (
               <MediumCard key={item.image} img={item.img} title={item.title} />
             ))}
           </div>
         </section>
+
+        <LargeCard
+          img="https://links.papareact.com/4cj"
+          title="The Greatest Outdoors"
+          description= "Wishlists curated by Airbnb."
+          buttonText= "Get Inspired"
+          />
       </main>
     </div>
   );
