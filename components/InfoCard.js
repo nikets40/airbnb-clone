@@ -4,8 +4,8 @@ import { HeartIcon } from "@heroicons/react/outline";
 
 function InfoCard({ img, location, title, description, star, price, total }) {
   return (
-    <div className="flex pr-4 px-2 py-7 border-b first:border-t hover:rounded-2xl hover:shadow-xl hover:opacity-80 cursor-pointer transition-all duration-200 ease-out">
-      <div className="relative flex-shrink-0 w-40 h-24 md:w-80 md:h-52">
+    <div className="flex flex-col pr-4 px-2 py-7 border-b first:border-t hover:rounded-2xl hover:shadow-xl hover:opacity-80 cursor-pointer space-y-4 transition-all duration-200 ease-out md:flex-row md:space-x-4 md:space-y-0">
+      <div className="relative flex-shrink-0 w-full h-60 sm:h-80 md:w-80 md:h-52">
         <Image
           src={img}
           layout="fill"
@@ -14,7 +14,7 @@ function InfoCard({ img, location, title, description, star, price, total }) {
         />
       </div>
 
-      <div className="flex flex-col flex-grow pl-5">
+      <div className="flex flex-col flex-grow">
         <div className="flex justify-between">
           <p className="">{location}</p>
           <HeartIcon className="h-7 cursor-pointer" />
