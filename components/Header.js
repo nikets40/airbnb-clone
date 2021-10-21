@@ -3,6 +3,7 @@ import Image from "next/image";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { DateRangePicker } from "react-date-range";
+import { useRouter, Router } from "next/router";
 
 import {
   SearchIcon,
@@ -11,14 +12,12 @@ import {
   UserCircleIcon,
   UsersIcon,
 } from "@heroicons/react/solid";
-import { useRouter } from "next/dist/client/router";
 
 function Header({ placeholder }) {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuest, setNoOfGuest] = useState(1);
-
   const router = useRouter();
   const selectionRange = {
     startDate: startDate,
@@ -26,6 +25,16 @@ function Header({ placeholder }) {
     key: "selection",
   };
 
+  const clearSearch = () => {
+    try {
+      setSearchInput("");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  Router.events.on('routeChangeComplete', clearSearch);
+  
   const handleSelect = (ranges) => {
     setStartDate(ranges.selection.startDate);
     setEndDate(ranges.selection.endDate);
@@ -47,7 +56,6 @@ function Header({ placeholder }) {
         noOfGuest,
       },
     });
-    setSearchInput("");
   };
 
   return (

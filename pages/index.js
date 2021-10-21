@@ -37,7 +37,7 @@ export default function Home({ exploreData, cardsData }) {
           <h2 className="text-4xl font-semibold py-8">Live anywhere</h2>
           <div className="flex space-x-5 overflow-scroll scrollbar-hide p-3 -ml-3">
             {cardsData?.map((item) => (
-              <MediumCard key={item.image} img={item.img} title={item.title} />
+              <MediumCard key={item.img} img={item.img} title={item.title} />
             ))}
           </div>
         </section>
