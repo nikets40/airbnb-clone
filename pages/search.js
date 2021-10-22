@@ -18,7 +18,8 @@ function Search({ searchResults }) {
         placeholder={`${location} | ${dateRange} | ${noOfGuest} Guests`}
       />
       <main className="flex">
-        <section className="flex-grow pt-14 px-5">
+        <section className="flex-grow ">
+          <div style={{height:"calc(100vh - 90px)"}} className="overflow-auto h-screen pt-14 px-5">
           <p className="text-xs">
             300+ stays • {dateRange} • for {noOfGuest} guests
           </p>
@@ -46,6 +47,7 @@ function Search({ searchResults }) {
                 total={item.total}
               />
             ))}
+          </div>
           </div>
         </section>
         <section className="hidden xl:inline-flex min-w-[600px]">
